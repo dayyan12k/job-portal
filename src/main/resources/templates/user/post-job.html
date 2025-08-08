@@ -1,0 +1,44 @@
+make the about us page maintaining the same theme please
+<!DOCTYPE html>
+<html th:replace="~{base :: parent(~{::#content}, ~{::title})}" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>Post-Job</title>
+</head>
+
+<body>
+    <div id="content" 
+   
+    style="margin-top: 70px;"> <!-- Adds space above -->
+        <div class="text-center">
+            <h1>Post Job</h1>
+        </div>
+        
+         <form th:action="@{'/jobs'}" method="post" data-th-object="${jobForm}">
+        <label>Job Title:</label>
+        <input type="text" name="name" data-th-field="*{name}" required /><br><br>
+
+        <label>Description:</label>
+        <textarea name="description"  data-th-field="*{description}" required></textarea><br><br>
+
+        <label>Location:</label>
+        <input type="text" name="location"  data-th-field="*{location}" required /><br><br>
+
+        <label>Salary:</label>
+        <input type="number" name="salary"  data-th-field="*{salary}" required /><br><br>
+
+        <label>Company:</label>
+        <select data-th-field="*{companyId}">
+            <option th:each="company : ${companies}"
+                    th:value="${company.id}"
+                    th:text="${company.name}">
+            </option>
+        </select><br><br>
+
+        <button type="submit" class="bg-amber-600">Post Job</button>
+    </form>
+        
+    </div>
+</body>
+
+</html>

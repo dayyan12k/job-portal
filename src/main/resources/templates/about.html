@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      th:replace="~{base :: parent(~{::#content}, ~{::title})}">
+
+<head>
+    <title>AboutPage</title>
+</head>
+
+<body>
+<div id="content" style="margin-top: 70px;">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Our Story</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                We're on a mission to revolutionize the way people find jobs and companies discover talent. 
+                Building bridges between dreams and opportunities.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        At JobPortal, we believe that everyone deserves to find meaningful work that aligns with their 
+                        skills, values, and aspirations. We're committed to creating a platform that makes job searching 
+                        more efficient, transparent, and rewarding for both candidates and employers.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Our advanced matching algorithms, combined with human insight, help create perfect connections 
+                        between talent and opportunity. We're not just a job board – we're your career partner.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Empowering Careers</h3>
+                            <p class="text-gray-600">Since 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">50K+</div>
+                            <div class="text-gray-600">Job Seekers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">5K+</div>
+                            <div class="text-gray-600">Companies</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-indigo-600 mb-2">10K+</div>
+                            <div class="text-gray-600">Active Jobs</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">95%</div>
+                            <div class="text-gray-600">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    The principles that guide everything we do and shape our company culture
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">Integrity</h3>
+                    <p class="text-gray-600 text-center">
+                        We believe in honest, transparent communication and ethical business practices. 
+                        Trust is the foundation of all our relationships.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">Empathy</h3>
+                    <p class="text-gray-600 text-center">
+                        We understand that job searching can be stressful. We're here to support both 
+                        candidates and employers with compassion and understanding.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">Innovation</h3>
+                    <p class="text-gray-600 text-center">
+                        We continuously evolve our platform using cutting-edge technology to provide 
+                        the best possible experience for our users.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Passionate professionals dedicated to transforming the job search experience
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center group">
+                    <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Mohammad Dayyan</h3>
+                    <p class="text-blue-600 font-medium mb-3">CEO & Co-Founder</p>
+                    <p class="text-gray-600">
+                        Former HR executive with 15 years of experience in talent acquisition and 
+                        organizational development.
+                    </p>
+                </div>
+                
+                <div class="text-center group">
+                    <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Laiba Khan</h3>
+                    <p class="text-purple-600 font-medium mb-3">CTO & Co-Founder</p>
+                    <p class="text-gray-600">
+                        Tech visionary with expertise in AI and machine learning, dedicated to 
+                        revolutionizing job matching algorithms.
+                    </p>
+                </div>
+                
+                <div class="text-center group">
+                    <div class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Emma Rodriguez</h3>
+                    <p class="text-indigo-600 font-medium mb-3">Head of Product</p>
+                    <p class="text-gray-600">
+                        UX expert passionate about creating intuitive experiences that make job 
+                        searching enjoyable and efficient.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey -->
+    <section class="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    From a simple idea to a platform that's changing lives
+                </p>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
+                
+                <div class="space-y-12">
+                    <div class="flex items-center">
+                        <div class="flex-1 text-right pr-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">2020 - The Beginning</h3>
+                            <p class="text-gray-600">
+                                Founded with a vision to make job searching more human and efficient. 
+                                Launched our MVP with basic job matching features.
+                            </p>
+                        </div>
+                        <div class="w-8 h-8 mr-8 bg-blue-500 rounded-full flex items-center justify-center relative z-10">
+                            <div class="w-4 h-4 bg-white rounded-full"></div>
+                        </div>
+                        <div class="flex-1 pl-8"></div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="flex-1 pr-8"></div>
+                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center relative z-10">
+                            <div class="w-4 h-4 bg-white rounded-full"></div>
+                        </div>
+                        <div class="flex-1 text-left pl-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">2022 - AI Integration</h3>
+                            <p class="text-gray-600">
+                                Introduced AI-powered matching algorithms and personalized job recommendations. 
+                                Reached 10,000 active users milestone.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="flex-1 text-right pr-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">2024 - Expansion</h3>
+                            <p class="text-gray-600">
+                                Expanded to multiple industries and launched our enterprise solutions. 
+                                Now serving over 50,000 job seekers and 5,000 companies.
+                            </p>
+                        </div>
+                        <div class="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center relative z-10">
+                            <div class="w-4 h-4 bg-white rounded-full"></div>
+                        </div>
+                        <div class="flex-1 pl-8"></div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="flex-1 pr-8"></div>
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center relative z-10">
+                            <div class="w-4 h-4 bg-white rounded-full"></div>
+                        </div>
+                        <div class="flex-1 text-left pl-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">2025 - The Future</h3>
+                            <p class="text-gray-600">
+                                Continuing to innovate with new features, global expansion, and 
+                                our commitment to connecting talent with opportunity worldwide.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-4xl font-bold mb-4">Join Our Mission</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Be part of a community that's transforming how people find meaningful work
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Start Your Journey
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                    Partner With Us
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">JobPortal</h3>
+                    <p class="text-gray-400">Connecting talent with opportunity</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">For Job Seekers</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Browse Jobs</a></li>
+                        <li><a href="#" class="hover:text-white">Career Advice</a></li>
+                        <li><a href="#" class="hover:text-white">Resume Builder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">For Employers</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Post Jobs</a></li>
+                        <li><a href="#" class="hover:text-white">Find Candidates</a></li>
+                        <li><a href="#" class="hover:text-white">Employer Branding</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 JobPortal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

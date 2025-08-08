@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Company</title>
+</head>
+<body>
+    <h1>Register a Company</h1>
+    <form th:action="@{/companies}" data-th-object="${companyform}" data method="post">
+        <label>Company Name:</label>
+        <input type="text" name="name" required /><br><br>
+
+        <label>Industry:</label>
+        <input type="text" name="industry" required /><br><br>
+
+        <label>Description:</label>
+        <input type="text" name="description" required /><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

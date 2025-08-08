@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html th:replace="~{base :: parent(~{::#content}, ~{::title})}" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>ARegister</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 70px);
+            padding: 20px;
+        }
+
+        .form-wrapper {
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div id="content" style="margin-top: 70px;" class="justify-center">
+
+        <div class="grid grid-cols-12 gap-4">
+
+            <!-- Left column -->
+            <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4">
+                <!-- You can add content here -->
+            </div>
+
+            <!-- Center column -->
+            <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+                <!-- 6 ki space le rhi hai -->
+
+                <div class="form-container">
+                    <div class="form-wrapper">
+                        <div class="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
+                            <!-- Header -->
+                            <div class="text-center mb-8">
+                                <h1 class="text-3xl font-bold text-gray-800 mb-2">Register Yourself</h1>
+                                <p class="text-gray-600">Join our community today</p>
+                            </div>
+ 
+                            <form th:action="@{'/do-register'}" method="post" data-th-object="${userForm}" class="space-y-6" >
+                                <!-- Name Field -->
+                                <div>
+                                    <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full
+                                        Name</label>
+                                    <input type="text" id="name" name="name"
+                                    data-th-field="*{name}"
+                                    required
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400"
+                                        placeholder="Enter your full name">
+                                </div>
+
+                                <!-- Email Field -->
+                                <div>
+                                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email
+                                        Address</label>
+                                    <input type="email" id="email" 
+                                     data-th-field="*{email}"
+                                    required
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400"
+                                        placeholder="Enter your email address">
+                                </div>
+
+                                <!-- Password Field -->
+                                  <div>
+                                    <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                                    <input type="password" id="password" 
+                                    data-th-field="*{password}"
+                                    required
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400"
+                                        placeholder="Enter your Password">
+                                </div>
+
+                                <!-- Phone Number Field -->
+                                <div>
+                                    <label for="phoneNumber"
+                                        class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                                    <input type="tel" id="phoneNumber" 
+                                     data-th-field="*{phoneNumber}"
+                                     required
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400"
+                                        placeholder="Enter your phone number">
+                                </div>
+
+                                <!-- Address Field -->
+                                <div>
+                                    <label for="address"
+                                        class="block text-sm font-semibold text-gray-700 mb-2">Address</label>
+                                    <textarea id="address" name="address" 
+                                     data-th-field="*{address}"
+                                    required rows="4"
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400 resize-none"
+                                        placeholder="Enter your complete address"></textarea>
+                                </div>
+
+                                <!-- LinkedIn Field -->
+                                <div>
+                                    <label for="linkedin"
+                                        class="block text-sm font-semibold text-gray-700 mb-2">LinkedIn Profile</label>
+                                    <input type="url" id="linkedin" 
+                                        data-th-field="*{LinkedIn}"
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400"
+                                        placeholder="https://linkedin.com/in/your-profile">
+                                </div>
+
+                                <!-- Terms and Conditions -->
+                                <div class="flex items-start space-x-3 pt-4">
+                                    <input type="checkbox" id="terms" name="terms" required
+                                        class="w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 mt-1">
+                                    <label for="terms" class="text-sm text-gray-700">
+                                        I agree to the <a href="#"
+                                            class="text-blue-600 hover:text-blue-800 underline">Terms of Service</a>
+                                        and <a href="#" class="text-blue-600 hover:text-blue-800 underline">Privacy
+                                            Policy</a>
+                                    </label>
+                                </div>
+
+                                <!-- Newsletter Subscription -->
+                                <div class="flex items-start space-x-3">
+                                    <input type="checkbox" id="newsletter" name="newsletter"
+                                        class="w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 mt-1">
+                                    <label for="newsletter" class="text-sm text-gray-700">
+                                        Subscribe to our newsletter for job updates and opportunities
+                                    </label>
+                                </div>
+
+                                <!-- Button Group -->
+                                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                                    <button type="reset"
+                                        class=" flex-1 px-6 py-3 border-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white  rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold">
+                                        Reset
+                                    </button>
+                                     <button type="submit"
+                                        class="flex-1 px-6 py-3 border-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white  rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- <script>
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const userData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phoneNumber: formData.get('phoneNumber'),
+                address: formData.get('address'),
+                linkedin: formData.get('linkedin')
+            };
+
+            // Basic validation
+            if (!userData.name || !userData.email || !userData.phoneNumber || !userData.address) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(userData.email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Phone number validation (basic)
+            const phoneRegex = /^\d{10,}$/;
+            if (!phoneRegex.test(userData.phoneNumber.replace(/\D/g, ''))) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+
+            // LinkedIn URL validation (if provided)
+            if (userData.linkedin && !userData.linkedin.includes('linkedin.com')) {
+                alert('Please enter a valid LinkedIn profile URL');
+                return;
+            }
+
+            console.log('User Data:', userData);
+            alert('Registration submitted successfully!');
+        });
+
+        // Phone number formatting
+        document.getElementById('phoneNumber').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 10) {
+                value = value.substring(0, 10);
+            }
+            e.target.value = value;
+        });
+
+        // LinkedIn URL formatting
+        document.getElementById('linkedin').addEventListener('blur', function (e) {
+            let value = e.target.value.trim();
+            if (value && !value.startsWith('http')) {
+                if (value.includes('linkedin.com')) {
+                    e.target.value = 'https://' + value;
+                } else if (!value.includes('linkedin.com')) {
+                    e.target.value = 'https://linkedin.com/in/' + value;
+                }
+            }
+        });
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apply for Job</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center">
+
+<div class="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 w-full max-w-md">
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Apply for Job</h1>
+        <p class="text-gray-600">Submit your application</p>
+    </div>
+    <form th:action="@{/apply}" method="post" enctype="multipart/form-data" class="space-y-6" th:object="${applicationForm}">
+
+        <input type="hidden" th:field="*{jobId}"/>
+
+        <div>
+            <label for="applicantName" class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+            <input type="text" id="applicantName" th:field="*{applicantName}" required
+                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400"
+                   placeholder="Enter your name">
+        </div>
+
+        <div>
+            <label for="applicantEmail" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+            <input type="email" id="applicantEmail" th:field="*{applicantEmail}" required
+                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400"
+                   placeholder="Enter your email address">
+        </div>
+
+        <div>
+            <label for="experience" class="block text-sm font-semibold text-gray-700 mb-2">Experience</label>
+            <textarea id="experience" th:field="*{experience}" required
+                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700 placeholder-gray-400 resize-none"
+                      placeholder="Describe your experience" rows="4"></textarea>
+        </div>
+
+        <div>
+            <label for="resumeFile" class="block text-sm font-semibold text-gray-700 mb-2">Resume</label>
+            <input type="file" id="resumeFile" th:field="*{resumeFile}" required accept=".pdf,.doc,.docx"
+                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 text-gray-700">
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6">
+            <button type="reset"
+                    class="flex-1 px-6 py-3 border-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white  rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold">
+                Reset
+            </button>
+            <button type="submit"
+                    class="flex-1 px-6 py-3 border-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white  rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold">
+                Submit
+            </button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
+
