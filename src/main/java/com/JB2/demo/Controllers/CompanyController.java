@@ -17,7 +17,7 @@ public class CompanyController {
     @Autowired
     private CompanyServiceImpl companyServiceImpl;
 
-    @RequestMapping("/register-company")
+    @RequestMapping("/user/register-company")
     public String showForm(Model model){
         Companyform companyform = new Companyform();
         model.addAttribute("companyform" , companyform);

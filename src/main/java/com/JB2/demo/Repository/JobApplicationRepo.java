@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.JB2.demo.entity.JobApplication;
 import com.JB2.demo.entity.Job;
+import com.JB2.demo.entity.JobApplication;
 import com.JB2.demo.entity.User;
 
 @Repository
@@ -39,4 +39,6 @@ public interface JobApplicationRepo extends JpaRepository<JobApplication, Long> 
     
     // Count applications by a specific user
     Long countByApplicantId(Long applicantId);
+    // count the applications by the 
+    // Long countByUserId(Long userId);
 }
