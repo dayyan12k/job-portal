@@ -1,4 +1,4 @@
-make the about us page maintaining the same theme please
+<!-- make the about us page maintaining the same theme please
 <!DOCTYPE html>
 <html th:replace="~{base :: parent(~{::#content}, ~{::title})}" xmlns:th="http://www.thymeleaf.org" lang="en">
 
@@ -9,7 +9,7 @@ make the about us page maintaining the same theme please
 <body>
     <div id="content" 
    
-    style="margin-top: 70px;"> <!-- Adds space above -->
+    style="margin-top: 70px;"> 
         <div class="text-center">
             <h1>Post Job</h1>
         </div>
@@ -38,6 +38,150 @@ make the about us page maintaining the same theme please
         <button type="submit" class="bg-amber-600">Post Job</button>
     </form>
         
+    </div>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html th:replace="~{base :: parent(~{::#content}, ~{::title})}" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>Post Job</title>
+</head>
+
+<body>
+    <div id="content" style="margin-top: 70px;"> <!-- Adds space above -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Post a New Job</h1>
+            <p class="text-lg text-gray-600">Find the perfect candidate for your team</p>
+        </div>
+
+        <div class="container mx-auto px-4 py-6">
+            <!-- Main Form Container -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-blue-50 to-amber-50 rounded-xl shadow-lg p-8 mb-8">
+                    <form th:action="@{'/jobs'}" method="post" data-th-object="${jobForm}" class="space-y-6">
+                        
+                        <!-- Job Title -->
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <label class="block text-lg font-semibold text-gray-800 mb-3">
+                                <i class="fas fa-briefcase text-blue-600 mr-2"></i>Job Title
+                            </label>
+                            <input type="text" name="name" data-th-field="*{name}" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 transition-colors"
+                                placeholder="e.g. Senior Software Engineer" />
+                        </div>
+
+                        <!-- Description -->
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <label class="block text-lg font-semibold text-gray-800 mb-3">
+                                <i class="fas fa-align-left text-blue-600 mr-2"></i>Job Description
+                            </label>
+                            <textarea name="description" data-th-field="*{description}" required rows="6"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 resize-vertical transition-colors"
+                                placeholder="Describe the role, responsibilities, requirements, and what makes this opportunity exciting..."></textarea>
+                        </div>
+
+                        <!-- Location and Salary Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Location -->
+                            <div class="bg-white rounded-lg p-6 shadow-sm">
+                                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                                    <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>Location
+                                </label>
+                                <input type="text" name="location" data-th-field="*{location}" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 transition-colors"
+                                    placeholder="e.g. Mumbai, Maharashtra" />
+                            </div>
+
+                            <!-- Salary -->
+                            <div class="bg-white rounded-lg p-6 shadow-sm">
+                                <label class="block text-lg font-semibold text-gray-800 mb-3">
+                                    <i class="fas fa-rupee-sign text-blue-600 mr-2"></i>Salary (₹)
+                                </label>
+                                <input type="number" name="salary" data-th-field="*{salary}" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 transition-colors"
+                                    placeholder="e.g. 500000" />
+                            </div>
+                        </div>
+
+                        <!-- Company Selection -->
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <label class="block text-lg font-semibold text-gray-800 mb-3">
+                                <i class="fas fa-building text-blue-600 mr-2"></i>Select Company
+                            </label>
+                            <select data-th-field="*{companyId}" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white transition-colors">
+                                <option value="">Choose a company...</option>
+                                <option th:each="company : ${companies}"
+                                        th:value="${company.id}"
+                                        th:text="${company.name}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center pt-6">
+                            <button type="submit" 
+                                class="bg-amber-600 hover:bg-amber-700 text-white px-12 py-4 rounded-lg text-xl font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                                <i class="fas fa-plus-circle mr-2"></i>Post Job
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Additional Information Card -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <!-- Tip 1 -->
+                    <div class="bg-amber-100 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lightbulb text-white text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Clear Job Title</h3>
+                        <p class="text-gray-600 text-sm">Use specific, clear job titles that candidates can easily search for and understand.</p>
+                    </div>
+
+                    <!-- Tip 2 -->
+                    <div class="bg-amber-100 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-white text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Detailed Description</h3>
+                        <p class="text-gray-600 text-sm">Include responsibilities, requirements, and company culture to attract the right candidates.</p>
+                    </div>
+
+                    <!-- Tip 3 -->
+                    <div class="bg-amber-100 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-white text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Competitive Salary</h3>
+                        <p class="text-gray-600 text-sm">Offer competitive compensation to attract top talent and reduce time-to-hire.</p>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mt-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Why Post on ARegister?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="border-r border-gray-200 md:border-r-2 md:border-gray-200">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">10,000+</div>
+                            <div class="text-gray-600">Active Job Seekers</div>
+                        </div>
+                        <div class="border-r border-gray-200 md:border-r-2 md:border-gray-200">
+                            <div class="text-3xl font-bold text-green-600 mb-2">95%</div>
+                            <div class="text-gray-600">Successful Placements</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-purple-600 mb-2">7 Days</div>
+                            <div class="text-gray-600">Average Time to Hire</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

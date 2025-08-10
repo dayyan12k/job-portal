@@ -118,7 +118,6 @@ public class JobController {
         if (authentication == null) {
             return "redirect:/login";
         }
-        
         String userEmail = Helper.getEmailOFLoggedInUsers(authentication);
         jobApplicationService.applyForJob(applicationForm, userEmail);
         return "redirect:/view_jobs";
@@ -171,6 +170,27 @@ public class JobController {
         
         return "user/saved-jobs";
     }
+
+
+
+     @RequestMapping("/user/applied-jobs")
+    public String AppliedJobs(Model model, Authentication authentication){
+        String email= Helper.getEmailOFLoggedInUsers(authentication);
+        User user = userRepo.findByEmail(email).orElse(null);
+        if(user != null && user.getAppliedJobs()!=null){
+            model.addAttribute("appliedJobs", user.getAppliedJobs());
+        }else{
+            model.addAttribute("appliedJobs" , new ArrayList<>());
+        }
+         model.addAttribute("helper", Helper.class);
+        model.addAttribute("currentUserEmail", email);
+        model.addAttribute("jobService", jobService);
+        System.out.println("{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}");
+        System.out.println(user.getAppliedJobs());
+
+        return "user/applied-jobs";
+    }
+
 
 
     //  // Apply for job mapping

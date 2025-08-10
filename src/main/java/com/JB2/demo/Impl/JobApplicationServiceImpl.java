@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,13 +27,13 @@ public class JobApplicationServiceImpl implements JobApplicationService {
 
     @Autowired
     private JobApplicationRepo jobApplicationRepo;
-    
+
     @Autowired
     private JobRepo jobRepo;
-    
+
     @Autowired
     private UserRepo userRepo;
-    
+
     private final String RESUME_UPLOAD_DIR = "uploads/resumes/";
 
     @Override
@@ -46,7 +47,7 @@ public class JobApplicationServiceImpl implements JobApplicationService {
             // Get job and user
             Job job = jobRepo.findById(applicationForm.getJobId())
                     .orElseThrow(() -> new RuntimeException("Job not found"));
-            
+
             User user = userRepo.findByEmail(userEmail)
                     .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -62,9 +63,13 @@ public class JobApplicationServiceImpl implements JobApplicationService {
             jobApplication.setResumeFilePath(resumeFilePath);
             jobApplication.setJob(job);
             jobApplication.setApplicant(user);
+            if (user.getAppliedJobs() == null) {
+                user.setAppliedJobs(new ArrayList<>());
+            }
+            user.getAppliedJobs().add(job);
 
             return jobApplicationRepo.save(jobApplication);
-            
+
         } catch (Exception e) {
             throw new RuntimeException("Error applying for job: " + e.getMessage(), e);
         }
@@ -73,8 +78,10 @@ public class JobApplicationServiceImpl implements JobApplicationService {
     @Override
     public boolean hasUserAppliedForJob(Long jobId, String userEmail) {
         User user = userRepo.findByEmail(userEmail).orElse(null);
-        if (user == null) return false;
-        
+        if (user == null) {
+            return false;
+        }
+
         return jobApplicationRepo.findByJobIdAndApplicantId(jobId, user.getId()).isPresent();
     }
 
@@ -101,8 +108,10 @@ public class JobApplicationServiceImpl implements JobApplicationService {
     @Override
     public Long countApplicationsByUser(String userEmail) {
         User user = userRepo.findByEmail(userEmail).orElse(null);
-        if (user == null) return 0L;
-        
+        if (user == null) {
+            return 0L;
+        }
+
         return jobApplicationRepo.countByApplicantId(user.getId());
     }
 
@@ -138,16 +147,16 @@ public class JobApplicationServiceImpl implements JobApplicationService {
             if (originalFilename != null && originalFilename.contains(".")) {
                 fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
             }
-            
-            String uniqueFilename = applicantEmail.replace("@", "_").replace(".", "_") + 
-                                   "_" + UUID.randomUUID().toString() + fileExtension;
+
+            String uniqueFilename = applicantEmail.replace("@", "_").replace(".", "_")
+                    + "_" + UUID.randomUUID().toString() + fileExtension;
 
             // Save file
             Path filePath = uploadPath.resolve(uniqueFilename);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
             return filePath.toString();
-            
+
         } catch (IOException e) {
             throw new RuntimeException("Failed to save resume file: " + e.getMessage(), e);
         }

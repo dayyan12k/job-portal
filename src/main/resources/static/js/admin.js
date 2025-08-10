@@ -5,7 +5,7 @@ async function doLogout() {
     title: "Do you want to Log Out?",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonText: "Delete",
+    confirmButtonText: "Logout",
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
